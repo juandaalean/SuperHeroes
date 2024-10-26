@@ -43,7 +43,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.gson.serializer)
-
+    implementation(libs.retro)
+    implementation(libs.gson.retro)
 
     testImplementation(libs.junit)
 
