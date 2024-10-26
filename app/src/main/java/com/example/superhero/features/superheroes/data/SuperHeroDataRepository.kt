@@ -1,9 +1,8 @@
 package com.example.superhero.features.superheroes.data
 
-import android.content.Context
 import com.example.superhero.features.superheroes.data.local.SuperHeroXmlLocalDataSource
 import com.example.superhero.features.superheroes.data.remote.SuperHeroApiRemoteDataSource
-import com.example.superhero.features.superheroes.domain.SuperHero
+import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import com.example.superhero.features.superheroes.domain.SuperHeroRepository
 
 class SuperHeroDataRepository(
