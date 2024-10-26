@@ -1,6 +1,6 @@
 package com.example.superhero.features.superheroes.data.remote
 
-import com.example.superhero.features.superheroes.domain.SuperHero
+import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import retrofit2.Response
 
 import retrofit2.http.GET

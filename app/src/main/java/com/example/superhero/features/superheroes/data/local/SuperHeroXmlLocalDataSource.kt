@@ -2,7 +2,7 @@ package com.example.superhero.features.superheroes.data.local
 
 import android.content.Context
 import com.example.superhero.R
-import com.example.superhero.features.superheroes.domain.SuperHero
+import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import com.google.gson.Gson
 
 class SuperHeroXmlLocalDataSource(private val context: Context) {
