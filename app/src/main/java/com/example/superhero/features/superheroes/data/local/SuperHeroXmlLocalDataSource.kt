@@ -4,7 +4,9 @@ import android.content.Context
 import com.example.superhero.R
 import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import com.google.gson.Gson
+import org.koin.core.annotation.Single
 
+@Single
 class SuperHeroXmlLocalDataSource(private val context: Context) {
 
     private val sharedPref =context.getSharedPreferences(

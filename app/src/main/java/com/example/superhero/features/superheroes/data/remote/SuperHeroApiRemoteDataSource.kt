@@ -7,13 +7,17 @@ import com.example.superhero.features.superheroes.domain.atributes.Images
 import com.example.superhero.features.superheroes.domain.atributes.PowerStats
 import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import com.example.superhero.features.superheroes.domain.atributes.Work
+import org.koin.core.annotation.Single
 
+@Single
 class SuperHeroApiRemoteDataSource(private val superHeroService: SuperHeroService) {
 
     suspend fun getSuperHeroes(): List<SuperHero> {
         val response = superHeroService.requestSuperHeroes()
         if (response.isSuccessful) {
-            return response.body()!!
+            return response.body()!!.map {
+                it.toModel()
+            }
         } else{
             return emptyList()
         }
@@ -22,7 +26,7 @@ class SuperHeroApiRemoteDataSource(private val superHeroService: SuperHeroServic
     suspend fun getSuperHero(superHeroId: String): SuperHero {
         val response = superHeroService.requestSuperHero(superHeroId)
         if (response.isSuccessful) {
-            return response.body()!!
+            return response.body()!!.toModel()
         } else{
             return SuperHero(
                 id = "Error",
@@ -66,7 +70,7 @@ class SuperHeroApiRemoteDataSource(private val superHeroService: SuperHeroServic
                     "error",
                     "error",
                     "error"
-                )
+                ).toString()
             )
         }
     }

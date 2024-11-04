@@ -8,7 +8,7 @@ import com.example.superhero.features.superheroes.domain.atributes.PowerStats
 import com.example.superhero.features.superheroes.domain.atributes.Work
 import com.google.gson.annotations.SerializedName
 
-class SuperHeroApiModel(
+data class SuperHeroApiModel(
     @SerializedName("id") val id: String,
     @SerializedName("name") val name: String,
     @SerializedName("slug") val slug: String,
@@ -17,5 +17,8 @@ class SuperHeroApiModel(
     @SerializedName("biography") val biography: Biography,
     @SerializedName("work") val work: Work,
     @SerializedName("connections") val connections: Connections,
-    @SerializedName("images") val images: Images
+    @SerializedName("images") val images: SuperHeroImageApiModel
 )
+
+data class SuperHeroImageApiModel(val lg: String)
+

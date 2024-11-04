@@ -10,8 +10,8 @@ interface SuperHeroService {
 
 
     @GET("all.json")
-    suspend fun requestSuperHeroes(): Response<List<SuperHero>>
+    suspend fun requestSuperHeroes(): Response<List<SuperHeroApiModel>>
 
     @GET("id/{superHeroId}.json")
-    suspend fun requestSuperHero(@Path("superHeroId") superHeroId: String): Response<SuperHero>
+    suspend fun requestSuperHero(@Path("superHeroId") superHeroId: String): Response<SuperHeroApiModel>
 }

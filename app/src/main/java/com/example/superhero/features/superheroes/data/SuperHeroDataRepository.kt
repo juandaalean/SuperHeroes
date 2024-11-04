@@ -4,7 +4,9 @@ import com.example.superhero.features.superheroes.data.local.SuperHeroXmlLocalDa
 import com.example.superhero.features.superheroes.data.remote.SuperHeroApiRemoteDataSource
 import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 import com.example.superhero.features.superheroes.domain.SuperHeroRepository
+import org.koin.core.annotation.Single
 
+@Single
 class SuperHeroDataRepository(
     private val local: SuperHeroXmlLocalDataSource,
     private val remote: SuperHeroApiRemoteDataSource

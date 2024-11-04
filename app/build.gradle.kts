@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.navigation.safeargs.kotlin)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.example.superhero"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.superhero"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -53,11 +54,26 @@ dependencies {
     implementation(libs.nav.ui.ktx)
     implementation(libs.nav.fragment.ktx)
     implementation(libs.glide)
+
+    //Librerias Koin
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.android)
+    implementation(libs.koin.annotations)
+
+    //Librerias Ksp
+    ksp(libs.koin.ksp)
+
+
     api(libs.nav.fragment.ktx)
+
 
     testImplementation(libs.junit)
 
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+ksp{
+    arg("KOIN_CONFIG_CHECK", "true")
 }
