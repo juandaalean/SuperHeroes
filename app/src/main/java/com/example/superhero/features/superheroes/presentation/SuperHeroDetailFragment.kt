@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.example.superhero.app.extensions.loadUrl
 import com.example.superhero.databinding.FragmentSuperheroDetailBinding
 import com.example.superhero.features.superheroes.domain.atributes.SuperHero
 
@@ -58,13 +59,21 @@ class SuperHeroDetailFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, superHeroObserver)
     }
 
-    private fun getSuperHeroId(): String? {
+    private fun getSuperHeroId(): String {
         return superHeroArgs.superHeroId
     }
 
     private fun bindData(superhero: SuperHero) {
         binding.apply {
-
+            superHeroImage.loadUrl(superhero.images.lg)
+            superHeroName.text = superhero.name
+            superHeroId.text = superhero.id
+            superHeroBase.text = superhero.work.base
+            superHeroOccupation.text = superhero.work.occupation
+            superHeroFullName.text = superhero.biography.fullName
+            superHeroAlterEgos.text = superhero.biography.alterEgos
+            aliases.text = superhero.biography.aliases.toString()
+            fisrtAppearance.text = superhero.biography.firstAppearance
         }
     }
 }

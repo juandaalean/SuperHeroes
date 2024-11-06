@@ -15,6 +15,8 @@ class SuperHeroViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
         binding.apply {
             image.loadUrl(model.images.lg)
             name.text = model.name
+            slug.text = model.slug
+            group.text = model.connections.groupAffiliation
             superheroViewLayout.setOnClickListener {
                 navigateToDetails(model.id)
             }
