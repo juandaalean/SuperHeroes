@@ -28,9 +28,9 @@ class SuperHeroXmlLocalDataSource(private val context: Context) {
     }
 
     fun findAll(): List<SuperHero> {
-        val superHeroes = ArrayList<SuperHero>()
+        val superHeroes = mutableListOf<SuperHero>()
         val mapSuperHeroes = sharedPref.all
-        mapSuperHeroes.forEach{ jsonSuperHeroes ->
+        mapSuperHeroes.values.forEach{ jsonSuperHeroes ->
             val superHero = gson.fromJson(jsonSuperHeroes as String, SuperHero::class.java)
             superHeroes.add(superHero)
         }
